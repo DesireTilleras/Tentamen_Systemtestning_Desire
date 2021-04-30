@@ -1,0 +1,55 @@
+
+Extra tester utöver de kriterier som stod specificerade i tenta-beskrivning. 
+
+Förnamn: 
+Spec enligt tentamen: Förnamn får ej vara mer än 15 tecken. 
+Jag valde att även testa på:
+1. Att förnamn inte får innehålla följande tecken: \|!#$%&/()=?»«@£§€{}.;'<>_,
+2. Att förnamn inte får innehålla siffra.
+
+Jag tycker inte att namn skall kunna innehålla dessa tecken i mitt program, inte heller siffror. 
+
+Namn på testemotoder:
+TestCheckInvalidFirstName
+TestCheckValidFirstName
+
+Efternamn: 
+Spec enligt tentamen: Förnamn får ej vara mer än 20 tecken. 
+Här valde jag att göra likadant som med förnamn. Alltså testa på att namnet inte skall kunna innehålla ovan specialtecken samt
+att det inte ska kunna innehålla siffra. 
+
+Namn på testmetoder:
+TestCheckInvalidLastName
+TestCheckValidLastName
+
+Födelsedatum: 
+Spec enligt tentamen: Förnamn får ej vara i framtiden. 
+Jag valde att testa på: 
+1. Att en anställd inte kan vara yngre än 16 år. 
+
+På dne här arbetsplatsen så har mna valt att endast anställa dem som är över 16 år. 
+
+Namn på testmetoder:
+TestCheckInvalidBirthDate
+TestCheckValidBirthDate
+
+Bonus:
+Spec enligt tentamen: Heltal, procent på lönen. 
+Här valde jag att sätta att bonus endast kan vara mellan 1-100. 
+1. Jag gjorde en metod som räknar ut den nya lönen efter tillagd bonus. Metoden tar in den anställdes bonus och lön, 
+returnerar sedan den nya lönen efter tillagd bonussats. Testet är utformat så att det testar att resultat och förväntat 
+resultat är samma. 
+2. Eftersom bonus skall vara heltal, så testar jag även på att man ej skall kunna sätta in decimaltal.
+3. Eftersom bonus ska vara int, så testar jag att det inte går med NaN. Alltså testar jag att sätta in en sträng. 
+
+Namn på testmetoder: 
+TestRaisedSalary
+TestCheckInvalidInputBonus
+
+Override ToString() Metod:
+Jag valde att göra en ToString() metod. I testklassen skapar jag en testmetod som testar
+om resultatet är detsamma som förväntat resultat. 
+
+Namn på testmetod: 
+TestCheckValidToString
+

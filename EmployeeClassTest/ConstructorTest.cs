@@ -14,7 +14,7 @@ namespace EmployeeClassTest
              string dateOfBirth, string salary, int bonus, string phoneNumber, string email)
         {
             var employee = new Employee(firstName, lastName, DateTime.Parse(dateOfEmployement),
-            DateTime.Parse(dateOfBirth), decimal.Parse(salary), bonus, phoneNumber, email);
+            DateTime.Parse(dateOfBirth), double.Parse(salary), bonus, phoneNumber, email);
 
             Assert.IsNotNull(employee);
         }
@@ -34,7 +34,7 @@ namespace EmployeeClassTest
             try
             {
                 var employee1 = new Employee(firstName, lastName, DateTime.Parse(dateOfEmployement),
-                DateTime.Parse(dateOfBirth), decimal.Parse(salary), bonus, phoneNumber, email);
+                DateTime.Parse(dateOfBirth), double.Parse(salary), bonus, phoneNumber, email);
             }
             catch (Exception ex)
             {

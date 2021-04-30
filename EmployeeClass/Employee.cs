@@ -77,9 +77,9 @@ namespace EmployeeClass
             }
         }
 
-        private decimal salary;
+        private double salary;
 
-        public decimal Salary
+        public double Salary
         {
             get { return salary; }
             set
@@ -99,6 +99,7 @@ namespace EmployeeClass
             {
                 if (value <= 0) throw new ArgumentOutOfRangeException("Bonus cannot be zero or less than zero");
                 if (value > 100) throw new ArgumentOutOfRangeException("Bonus percentage cannot be over 100%");
+      
                 bonus = value; 
             
             }
@@ -130,7 +131,7 @@ namespace EmployeeClass
             }
         }
 
-         public Employee(string firstName, string lastName, DateTime employeeDate, DateTime dateOfBirth, decimal salary,
+         public Employee(string firstName, string lastName, DateTime employeeDate, DateTime dateOfBirth, double salary,
             int bonus, string phoneNumber, string mail)
         {
            FirstName = firstName;
@@ -143,7 +144,7 @@ namespace EmployeeClass
             Email = mail;
         }
 
-        public int RaiseSalaryWithBonus(int bonus, decimal salary)
+        public int RaiseSalaryWithBonus(int bonus, double salary)
         {
             float bonusdecimal = ((bonus / 100F) * (float)salary) + (float)salary;
             int raisedSalary = (int)bonusdecimal;

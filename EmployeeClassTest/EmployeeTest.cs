@@ -8,7 +8,7 @@ namespace EmployeeClassTest
     [TestClass]
     public class EmployeeTest
     {
-       
+
         [TestMethod]
         [DataRow(2021, 04, 27)]
         [DataRow(2017, 05, 03)]
@@ -33,7 +33,7 @@ namespace EmployeeClassTest
         [DataRow(2030, 12, 21, DisplayName = "In the future")]
         public void TestCheckInvalidEmployeeDate(int year, int month, int day)
         {
-           
+
             Exception exception = null;
             try
             {
@@ -44,7 +44,7 @@ namespace EmployeeClassTest
             {
                 exception = Ex;
             }
-             Assert.IsNotNull(exception);
+            Assert.IsNotNull(exception);
         }
 
         [TestMethod]
@@ -133,7 +133,7 @@ namespace EmployeeClassTest
             try
             {
                 var employee = new Employee("Desire", "Tilleras", new DateTime(2018, 02, 21),
-                new DateTime(1989, 07, 16), decimal.Parse(salary), 10, "070125355", "desire.tilleras@gmail.com");
+                new DateTime(1989, 07, 16), double.Parse(salary), 10, "070125355", "desire.tilleras@gmail.com");
             }
             catch (Exception Ex)
             {
@@ -145,13 +145,14 @@ namespace EmployeeClassTest
         [DataRow("29000")]
         [DataRow("500000")]
         [DataRow("1")]
+        [DataRow("35000,50")]
         public void TestCheckValidSalary(string salary)
         {
             Exception exception = null;
             try
             {
                 var employee = new Employee("Desire", "Tilleras", new DateTime(2018, 02, 21),
-                new DateTime(1989, 07, 16), decimal.Parse(salary), 10, "070125355", "desire.tilleras@gmail.com");
+                new DateTime(1989, 07, 16), double.Parse(salary), 10, "070125355", "desire.tilleras@gmail.com");
             }
             catch (Exception Ex)
             {
@@ -277,7 +278,7 @@ namespace EmployeeClassTest
         public void TestRaisedSalary(string salary, int bonusPercentage, int expectedResult)
         {
             var employee = new Employee("Desiré", "Tillerås", new DateTime(2018, 02, 21),
-            new DateTime(1989, 07, 16), decimal.Parse(salary), bonusPercentage, "0701234567", "desire.tilleras@gmail.com");
+            new DateTime(1989, 07, 16), double.Parse(salary), bonusPercentage, "0701234567", "desire.tilleras@gmail.com");
 
             int result = employee.RaiseSalaryWithBonus(employee.BonusPercentage, employee.Salary);
 
@@ -303,6 +304,18 @@ namespace EmployeeClassTest
         }
 
         [TestMethod]
+        [DataRow(10.5, DisplayName = "Bonus cannot be with decimal")]
+        [DataRow("15,3", DisplayName = "Wrong input, cannot convert string to int")]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestCheckInvalidInputBonus(int bonus)
+        {
+
+            var employee = new Employee("Desiré", "Tillerås", new DateTime(2018, 02, 21),
+            new DateTime(1989, 07, 16), 29000, bonus, "0701234567", "desire.tilleras@gmail.com");
+
+        }
+
+        [TestMethod]
         [DataRow("Desiré Tillerås Email: desire.tilleras@gmail.com")]
         public void TestCheckValidToString(string input)
         {
@@ -311,10 +324,12 @@ namespace EmployeeClassTest
             var employee = new Employee("Desiré", "Tillerås", new DateTime(2018, 02, 21),
            new DateTime(1989, 07, 16), 29000, 10, "0701234567", "desire.tilleras@gmail.com");
 
-           string result = employee.ToString();
+            string result = employee.ToString();
 
             Assert.AreEqual(result, input);
         }
+
+
 
 
 
