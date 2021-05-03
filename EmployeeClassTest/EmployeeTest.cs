@@ -302,6 +302,24 @@ namespace EmployeeClassTest
             }
             Assert.IsNotNull(exception);
         }
+        [TestMethod]
+        [DataRow(1)]
+        [DataRow(25)]
+        [DataRow(100)]
+        public void TestCheckValidBonus(int bonus)
+        {
+            Exception exception = null;
+            try
+            {
+                var employee = new Employee("Desiré", "Tillerås", new DateTime(2018, 02, 21),
+                new DateTime(1989, 07, 16), 29000, bonus, "0701234567", "desire.tilleras@gmail.com");
+            }
+            catch (Exception Ex)
+            {
+                exception = Ex;
+            }
+            Assert.IsNull(exception);
+        }
 
         [TestMethod]
         [DataRow(10.5, DisplayName = "Bonus cannot be with decimal")]
@@ -319,8 +337,7 @@ namespace EmployeeClassTest
         [DataRow("Desiré Tillerås Email: desire.tilleras@gmail.com")]
         public void TestCheckValidToString(string input)
         {
-            //return $"{FirstName} {LastName} Email: {Email}";
-
+            
             var employee = new Employee("Desiré", "Tillerås", new DateTime(2018, 02, 21),
            new DateTime(1989, 07, 16), 29000, 10, "0701234567", "desire.tilleras@gmail.com");
 

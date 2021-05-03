@@ -10,6 +10,8 @@ namespace EmployeeClassTest
     {
         [TestMethod]
         [DataRow("Desire", "Tilleras", "2018-06-22", "1989-07-16", "29000", 15, "070123456", "desire.tilleras@mail.com")]
+        [DataRow("Emma", "Karlsson", "2017-04-22", "2000-01-25", "26500", 8, "070123456", "emma.karlsson@gmail.com")]
+        [DataRow("Gunnar", "Johansson", "2010-10-22", "1960-10-26", "45000", 20, "070123456", "gunnar.johansson@hotmail.com")]
         public void TestCheckValidEmployee(string firstName, string lastName, string dateOfEmployement,
              string dateOfBirth, string salary, int bonus, string phoneNumber, string email)
         {

@@ -144,6 +144,12 @@ namespace EmployeeClass
             Email = mail;
         }
 
+        /// <summary>
+        /// This function takes in the employees salary and bonus-percentage and returns the salaray with added bonus. 
+        /// </summary>
+        /// <param name="bonus"></param>
+        /// <param name="salary"></param>
+        /// <returns></returns>
         public int RaiseSalaryWithBonus(int bonus, double salary)
         {
             float bonusdecimal = ((bonus / 100F) * (float)salary) + (float)salary;
